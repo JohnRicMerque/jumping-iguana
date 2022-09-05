@@ -1,0 +1,46 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --container-width: 320px;
+    --container-height: 200px;
+
+    --character-width: 40px;
+    --character-height: 40px;
+
+    --block-width: 20px;
+    --block-height: 40px;
+}
+
+.container {
+    width: var(--container-width);
+    height: var(--container-height);
+    border: 1px solid gray;
+    margin: auto
+}
+
+.iguana {
+    width: var(--character-width);
+    height: var(--character-height);
+    position: relative;
+    top: calc(var(--container-height) - var(--character-height));
+}
+
+.iguana img {
+    width: 100%;
+}
+
+.block {
+    width: var(--block-width);
+    height: var(--block-height);
+    background-color: grey;
+    border: 1px solid black;
+    position: relative;
+    top: calc(var(--container-height) - var(--block-height) - var(--character-height));
+    left: calc(var(--container-width) - var(--block-width));
+}
