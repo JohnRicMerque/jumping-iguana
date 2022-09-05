@@ -17,11 +17,19 @@
     --block-height: 40px;
 }
 
-.container {
+.container{
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    place-items: center;
+}
+
+.game {
     width: var(--container-width);
     height: var(--container-height);
     border: 1px solid gray;
-    margin: auto
+    margin: auto;
+    overflow: hidden;
 }
 
 .iguana {
@@ -29,6 +37,7 @@
     height: var(--character-height);
     position: relative;
     top: calc(var(--container-height) - var(--character-height));
+    animation: character-jump 1200ms infinite;
 }
 
 .iguana img {
@@ -43,4 +52,18 @@
     position: relative;
     top: calc(var(--container-height) - var(--block-height) - var(--character-height));
     left: calc(var(--container-width) - var(--block-width));
+    animation: moveblock 2s linear infinite;
+}
+
+@keyframes moveblock {
+    0%{left: calc(var(--container-width) - var(--block-width));}
+    100%{left: calc(var(--block-width) * -1)};
+}
+
+@keyframes character-jump {
+    0%{top: calc(var(--container-height) - var(--character-height))}
+    33%{top: calc(var(--container-height) - var(--character-height) - var(--block-height))}
+    66%{top: calc(var(--container-height) - var(--character-height) - var(--block-height))}
+    100%{top: calc(var(--container-height) - var(--character-height))}
+
 }
